@@ -1,0 +1,31 @@
+.form {
+  width: 100%;
+  display: flex;
+  padding: 1rem;
+  background-color: var(--color-bg-dark);
+}
+
+.input {
+  flex: 1 1 auto;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+  background-color: var(--color-bg);
+  outline: none;
+}
+
+.button {
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+  background-color: var(--color-green-primary);
+  color: var(--color-white);
+  font-size: 1.2rem;
+  padding: 0 2rem;
+  cursor: pointer;
+}
+
+.button:hover {
+  opacity: 0.9;
+}

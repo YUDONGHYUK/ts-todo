@@ -1,6 +1,7 @@
 import React from 'react';
 import { Todo } from '../TodoList/TodoList';
 import { FaRegTrashAlt } from 'react-icons/fa';
+import styles from './TodoItem.module.css';
 
 type TodoItemProps = {
   todo: Todo;
@@ -19,17 +20,22 @@ export default function TodoItem({ todo, onDelete, onUpdate }: TodoItemProps) {
   };
 
   return (
-    <li>
+    <li className={styles.todo}>
       <input
+        className={styles.checkbox}
         type='checkbox'
         id={todo.id}
         checked={todo.status === 'completed'}
         onChange={handleChange}
       />
-      <label htmlFor={todo.id}>{todo.text}</label>
-      <button onClick={handleClick}>
-        <FaRegTrashAlt />
-      </button>
+      <label className={styles.text} htmlFor={todo.id}>
+        {todo.text}
+      </label>
+      <span className={styles.icon}>
+        <button className={styles.button} onClick={handleClick}>
+          <FaRegTrashAlt />
+        </button>
+      </span>
     </li>
   );
 }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { Todo } from '../TodoList/TodoList';
+import styles from './AddTodo.module.css';
 
 type AddTodoProps = {
   onAdd: (todo: Todo) => void;
@@ -25,14 +26,15 @@ export default function AddTodo({ onAdd }: AddTodoProps) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={styles.form} onSubmit={handleSubmit}>
       <input
+        className={styles.input}
         type='text'
         placeholder='Add Todo'
         value={text}
         onChange={handleChange}
       />
-      <button>Add</button>
+      <button className={styles.button}>Add</button>
     </form>
   );
 }
