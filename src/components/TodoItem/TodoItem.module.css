@@ -19,15 +19,15 @@
 }
 
 .icon {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.6rem;
+  height: 1.6rem;
   background-color: var(--color-grey);
   border-radius: 50%;
   transition: all 200ms ease-out;
 }
 
 .icon:hover {
-  background-color: var(--color-green-sub);
+  background-color: var(--color-green-secondary);
 }
 
 .button {
