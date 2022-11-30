@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { FilterName } from '../../App';
 import AddTodo from '../AddTodo/AddTodo';
 import TodoItem from '../TodoItem/TodoItem';
 
@@ -8,13 +9,24 @@ const TODOS: Todo[] = [
   { id: '3', text: '빨래하기', status: 'active' },
 ];
 
+function getFilteredItems(todos: Todo[], filter: FilterName) {
+  if (filter === 'all') {
+    return todos;
+  }
+  return todos.filter((todo) => todo.status === filter);
+}
+
 export type Todo = {
   id: string;
   text: string;
   status: 'active' | 'completed';
 };
 
-export default function TodoList() {
+type TodoListProps = {
+  filter: FilterName;
+};
+
+export default function TodoList({ filter }: TodoListProps) {
   const [todos, setTodos] = useState<Todo[]>(TODOS);
 
   const handleAdd = (todo: Todo) => {
@@ -32,11 +44,13 @@ export default function TodoList() {
     );
   };
 
+  const filteredTodos = getFilteredItems(todos, filter);
+
   return (
     <>
       <section>
         <ul>
-          {todos.map((todo) => (
+          {filteredTodos.map((todo) => (
             <TodoItem
               key={todo.id}
               todo={todo}
